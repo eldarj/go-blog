@@ -4,7 +4,7 @@ import (
 	"net/http"
 )
 
-// Returns path to file to be served, e.g.
+// UnderlyingViewAction Returns path to file to be served, e.g.
 //  "./www/home.html"
 type UnderlyingViewAction func() string
 
