@@ -2,6 +2,7 @@ package controller
 
 import (
 	a "go-blog/bootstrap/lib/action"
+	v "go-blog/bootstrap/lib/view"
 	"log"
 	"net/http"
 )
@@ -12,9 +13,9 @@ type HomeController struct {
 
 func (controller *HomeController) InitEndpoints() {
 	if controller.endpoints == nil {
-		endpoints := map[string]a.IAction {
-			"/": IndexAction,
-			"/home": HomeAction,
+		endpoints := map[string]a.IAction{
+			"/":         IndexAction,
+			"/home":     HomeAction,
 			"/about-us": AboutUsAction,
 		}
 		controller.endpoints = endpoints
@@ -31,10 +32,9 @@ var IndexAction = a.ProtoAction{UnderlyingRun: func(w http.ResponseWriter, r *ht
 }}
 
 var HomeAction = a.ProtoAction{UnderlyingRun: func(w http.ResponseWriter, r *http.Request) {
-	log.Printf("Hello from my home action!")
+	http.ServeFile(w, r, "./www/home.html")
 }}
 
-var AboutUsAction = a.ProtoAction{UnderlyingRun: func(w http.ResponseWriter, r *http.Request) {
-	log.Printf("Hello from my home action!")
+var AboutUsAction = a.ViewAction{UnderlyingRun: func() string {
+	return v.View("about-us")
 }}
-
