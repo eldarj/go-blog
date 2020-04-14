@@ -7,11 +7,11 @@ import (
 )
 
 type Registrar struct {
-	endpoints map[string]*a.IAction
+	endpoints map[string]a.IAction
 }
 
 func (registrar Registrar) Register(controllers ...c.IController) *Registrar {
-	registrar.endpoints = map[string]*a.IAction{}
+	registrar.endpoints = map[string]a.IAction{}
 
 	for _, ctrl := range controllers {
 		ctrlEndpoints := ctrl.GetEndpoints()
@@ -27,6 +27,6 @@ func (registrar Registrar) Register(controllers ...c.IController) *Registrar {
 	return &registrar
 }
 
-func (registrar Registrar) GetEndpoints() map[string]*a.IAction {
+func (registrar Registrar) GetEndpoints() map[string]a.IAction {
 	return registrar.endpoints
 }

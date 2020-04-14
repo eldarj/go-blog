@@ -10,7 +10,7 @@ type Router struct {
 
 func (router Router) Start(registrar *Registrar) {
 	for uri, endpoint := range registrar.GetEndpoints() {
-		router.listen(uri, *endpoint)
+		router.listen(uri, endpoint)
 	}
 	_ = http.ListenAndServe(":8080", nil)
 }

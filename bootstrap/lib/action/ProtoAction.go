@@ -4,16 +4,16 @@ import (
 	"net/http"
 )
 
-type _underlyingAction func()
+type UnderlyingAction func(w http.ResponseWriter, r *http.Request)
 
 type ProtoAction struct {
-	run _underlyingAction
+	UnderlyingRun UnderlyingAction
 }
 
-func (action *ProtoAction) Set(run _underlyingAction) {
-	action.run = run
+func (action *ProtoAction) Set(run UnderlyingAction) {
+	action.UnderlyingRun = run
 }
 
 func (action ProtoAction) Run(w http.ResponseWriter, r *http.Request) {
-	action.run()
+	action.UnderlyingRun(w, r)
 }
