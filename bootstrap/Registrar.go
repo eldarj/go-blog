@@ -1,16 +1,17 @@
 package bootstrap
 
 import (
-	i "go-blog/bootstrap/interface"
+	a "go-blog/bootstrap/lib/action"
+	c "go-blog/bootstrap/lib/controller"
 	"log"
 )
 
 type Registrar struct {
-	endpoints map[string]i.IAction
+	endpoints map[string]*a.IAction
 }
 
-func (registrar Registrar) Register(controllers ...i.IController) Registrar {
-	registrar.endpoints = map[string]i.IAction{}
+func (registrar Registrar) Register(controllers ...c.IController) *Registrar {
+	registrar.endpoints = map[string]*a.IAction{}
 
 	for _, ctrl := range controllers {
 		ctrlEndpoints := ctrl.GetEndpoints()
@@ -23,9 +24,9 @@ func (registrar Registrar) Register(controllers ...i.IController) Registrar {
 	}
 
 	log.Printf("Controllers registered.\nAll registered endpoints: %v", registrar.endpoints)
-	return registrar
+	return &registrar
 }
 
-func (registrar Registrar) GetEndpoints() map[string]i.IAction {
+func (registrar Registrar) GetEndpoints() map[string]*a.IAction {
 	return registrar.endpoints
 }
