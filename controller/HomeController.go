@@ -7,24 +7,14 @@ import (
 	"net/http"
 )
 
-type HomeController struct {
-	endpoints map[string]a.IAction
-}
-
-func (controller *HomeController) InitEndpoints() {
-	if controller.endpoints == nil {
-		endpoints := map[string]a.IAction{
-			"/":         indexAction,
-			"/home":     homeAction,
-			"/about-us": aboutUsAction,
-		}
-		controller.endpoints = endpoints
-	}
-}
+type HomeController struct {}
 
 func (controller *HomeController) GetEndpoints() map[string]a.IAction {
-	controller.InitEndpoints()
-	return controller.endpoints
+	return map[string]a.IAction{
+		"/":         indexAction,
+		"/home":     homeAction,
+		"/about-us": aboutUsAction,
+	}
 }
 
 var indexAction = a.ProtoAction{UnderlyingRun: func(w http.ResponseWriter, r *http.Request) {

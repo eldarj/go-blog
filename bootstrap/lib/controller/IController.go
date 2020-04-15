@@ -5,6 +5,5 @@ import(
 )
 
 type IController interface {
-	InitEndpoints()
 	GetEndpoints() map[string]a.IAction
 }
