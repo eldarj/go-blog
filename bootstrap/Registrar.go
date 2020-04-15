@@ -6,27 +6,17 @@ import (
 	"log"
 )
 
-type Registrar struct {
-	endpoints map[string]a.IAction
-}
+type Registrar struct {}
 
-func (registrar Registrar) Register(controllers ...c.IController) *Registrar {
-	registrar.endpoints = map[string]a.IAction{}
+func (registrar Registrar) RegisterControllers(controllers ...c.IController) map[string]a.IAction {
+	endpoints := map[string]a.IAction{}
 
 	for _, ctrl := range controllers {
-		ctrlEndpoints := ctrl.GetEndpoints()
-		log.Printf("Registering controller: %+v", ctrl)
-
-		for k, v := range ctrlEndpoints {
-			log.Printf("Registering endpoint: %+v, %+v", k, v)
-			registrar.endpoints[k] = v
+		for k, v := range ctrl.GetEndpoints() {
+			endpoints[k] = v
 		}
 	}
 
-	log.Printf("Controllers registered.\nAll registered endpoints: %v", registrar.endpoints)
-	return &registrar
-}
-
-func (registrar Registrar) GetEndpoints() map[string]a.IAction {
-	return registrar.endpoints
+	log.Printf("Controllers registered successfully.\nAll registered endpoints: %v", endpoints)
+	return endpoints
 }
