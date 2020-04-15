@@ -5,11 +5,10 @@ import (
 	"net/http"
 )
 
-type Router struct {
-}
+type Router struct {}
 
-func (router Router) Start(registrar *Registrar) {
-	for uri, endpoint := range registrar.GetEndpoints() {
+func (router Router) Start(endpoints map[string]a.IAction) {
+	for uri, endpoint := range endpoints {
 		router.listen(uri, endpoint)
 	}
 	_ = http.ListenAndServe(":8080", nil)
