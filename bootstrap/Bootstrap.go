@@ -7,7 +7,7 @@ import (
 
 func Bootstrap() {
 	log.Println("Bootstrapping...")
-	Router{}.Start(Registrar{}.RegisterControllers(
+	Router{}.Start(Registrar{}.RegisterControllerEndpoints(
 		&c.HomeController{},
 	))
 }

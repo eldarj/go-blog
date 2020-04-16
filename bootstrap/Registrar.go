@@ -8,7 +8,7 @@ import (
 
 type Registrar struct {}
 
-func (registrar Registrar) RegisterControllers(controllers ...c.IController) map[string]a.IAction {
+func (registrar Registrar) RegisterControllerEndpoints(controllers ...c.IController) map[string]a.IAction {
 	endpoints := map[string]a.IAction{}
 
 	for _, ctrl := range controllers {

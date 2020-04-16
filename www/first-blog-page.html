@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'PT Serif', serif;
+        }
+        .header {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            box-shadow: 0 5px 5px 0 rgba(0,0,0,.1);
+        }
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header .me {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+        }
+        .header .social-icon {
+            width: 25px;
+            height: 25px;
+            border-radius: 2.5px
+        }
+        .header a {
+            padding: 5px 10px;
+            transition: all 100ms;
+            border-bottom: 1px solid #fff;
+        }
+        .header a:hover {
+            border-bottom: 1px solid #ddd;
+        }
+        code {
+            display: block;
+            background: darkslateblue;
+            color: #eee;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding: 20px;
+            border-radius: 2px;
+            box-shadow: 5px 5px 10px 0 rgba(0,0,0,.1);
+        }
+        .container {
+            width: 450px;
+        }
+        .main-container {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="container">
+        <a class="left" href="http://localhost:8080/blog">
+            <img class="me" src="https://media-exp1.licdn.com/dms/image/C5603AQH9KNis_BzaRA/profile-displayphoto-shrink_100_100/0?e=1592438400&v=beta&t=Pl9XYxwHqiPqCkYD8BKAYCNiPb-iQBMipWjrCypEf4o">
+        </a>
+        <div class="right">
+            <a href="https://www.linkedin.com/in/eldar-ja/"><img class="social-icon" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"></a>
+            <a href="https://github.com/eldarj"><img class="social-icon" src="https://www.keesingtechnologies.com/wp-content/uploads/2018/07/Linkedin-Icon.png"></a>
+        </div>
+    </div>
+</div>
+<div class="main-container container">
+    <div class="body">
+        <h1>{{mainTitle}}</h1>
+        <div>
+            <h3>{{title}}</h3>
+            <p>{{content}}</p>
+            <p>{{content2}}</p>
+            <code>{{code}}</code>
+            <p>{{content2}}</p>
+
+        </div>
+        <div>
+            <h3>{{subtitle}}</h3>
+            <p>{{subcontent}}</p>
+        </div>
+        <div>
+            <a href="/blog-2">Read more</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
