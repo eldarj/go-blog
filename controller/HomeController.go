@@ -12,7 +12,7 @@ type HomeController struct {}
 
 func (controller *HomeController) GetEndpoints() map[string]a.IAction {
 	return map[string]a.IAction{
-		"/":         indexAction,
+		// "/":         indexAction,
 		"/home":     homeAction,
 		"/about-us": aboutUsAction,
 		"/form": formDataAction,

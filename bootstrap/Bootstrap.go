@@ -1,6 +1,7 @@
 package bootstrap
 
 import (
+	auth "go-blog/auth/google"
 	c "go-blog/controller"
 	ss "go-blog/server"
 	"log"
@@ -17,5 +18,6 @@ func Bootstrap() {
 	Router{}.Start(Registrar{}.RegisterControllerEndpoints(
 		&c.HomeController{},
 		&c.DashboardController{},
+		&auth.AuthenticationService{},
 	))
 }
