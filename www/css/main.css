@@ -51,4 +51,10 @@ code {
 }
 .google-oauth-btn .google-oauth-img {
     height: 65px;
+    cursor: pointer;
+    opacity: .85;
+    transition: all .4s;
+}
+.google-oauth-btn .google-oauth-img:hover {
+    opacity: 1;
 }

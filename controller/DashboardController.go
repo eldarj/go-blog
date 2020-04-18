@@ -9,7 +9,7 @@ type DashboardController struct{}
 
 func (controller *DashboardController) GetEndpoints() map[string]a.IAction {
 	return map[string]a.IAction{
-		"/dashboard": dashboardAction,
+		"/authenticate": dashboardAction,
 	}
 }
 

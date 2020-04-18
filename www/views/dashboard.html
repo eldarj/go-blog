@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-signin-client_id" content="726207426882-48j56aompe9ousjaqpq6kekhcavt9t8q.apps.googleusercontent.com">
+
     <title>Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
 <div class="header">
@@ -20,12 +23,30 @@
 </div>
 <div class="main-container container">
     <div class="body">
-        <h1>Main Title Page</h1>
+        <h1>Authenticate</h1>
         <div>
-            <a href="/blog-2">Read more</a>
-            <div class="google-oauth-btn">
-                <img class="google-oauth-img" src="/resources/img/logos/google-oauth.png"/>
+            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark">
+                hey
             </div>
+            <script>
+                function onSignIn(googleUser) {
+                    // Useful data for your client-side scripts:
+                    var profile = googleUser.getBasicProfile();
+                    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                    console.log('Full Name: ' + profile.getName());
+                    console.log('Given Name: ' + profile.getGivenName());
+                    console.log('Family Name: ' + profile.getFamilyName());
+                    console.log("Image URL: " + profile.getImageUrl());
+                    console.log("Email: " + profile.getEmail());
+
+                    // The ID token you need to pass to your backend:
+                    var id_token = googleUser.getAuthResponse().id_token;
+                    console.log("ID Token: " + id_token);
+                }
+            </script>
+<!--            <div class="google-oauth-btn" data-onsuccess="onSignIn">-->
+<!--                <img class="google-oauth-img" src="/resources/img/logos/google-oauth.png"/>-->
+<!--            </div>-->
         </div>
     </div>
 </div>
