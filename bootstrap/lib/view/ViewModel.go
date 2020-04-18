@@ -9,7 +9,7 @@ import (
 )
 
 func ViewModel(viewName string, model m.BlogPageModel) string {
-	readFile, err := ioutil.ReadFile("./www/" + viewName + ".html")
+	readFile, err := ioutil.ReadFile("./www/views/" + viewName + ".html")
 	if err != nil {
 		fmt.Println("File reading error", err)
 	}

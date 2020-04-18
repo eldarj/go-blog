@@ -7,7 +7,7 @@ import (
 )
 
 func ViewData(viewName string, data map[string]string) string {
-	readFile, err := ioutil.ReadFile("./www/" + viewName + ".html")
+	readFile, err := ioutil.ReadFile("./www/views/" + viewName + ".html")
 	if err != nil {
 		fmt.Println("File reading error", err)
 	}
