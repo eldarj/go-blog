@@ -26,7 +26,7 @@ var indexAction = a.ProtoAction{UnderlyingRun: func(w http.ResponseWriter, r *ht
 }}
 
 var homeAction = a.ProtoAction{UnderlyingRun: func(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "./www/home.html")
+	http.ServeFile(w, r, "./www/views/home.html")
 }}
 
 var aboutUsAction = a.ViewAction{UnderlyingRun: func() string {
